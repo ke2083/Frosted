@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<style>
+		#frosted{
+		  position: absolute;
+		  color: #eee;
+		  text-shadow: 2px 2px 2px #111;
+		  left: 20%;
+		  top: 20%;
+		}
+		
+		#frostedContents{
+		  position: relative;
+		}
+		
+		#frostedContentsInner{
+		  position: absolute;
+		  z-index: 2;
+		  padding: 2em;
+		}
+		
+		#carousel{
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+	</style>
+  </head>
+  <body class="content">
+    <article>
+	  <h1>Frosting test</h1>
+	  <div id="#carousel">
+		  <button id="prev">prev</button>
+		  <button id="next">next</button>
+		</div>
+	  <div class="frosting">
+	    <div class="overlay" id="frosted">
+		  <div id="frostedContents">
+		    <div id="frostedContentsInner">
+	          <h2>Heading</h2>
+		      <p class="lead">Lead paragraph</p>
+			</div>
+		  </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-12 text-center frostedBackground">
+		    <img class="image-responsive carousel" src="http://1.bp.blogspot.com/-QNBdRMi-Yl8/TyKgC7sUrzI/AAAAAAAAFC4/0MUgZjD1_9w/s1600/underwater-wallpaper-fish-beautiful+scene.jpg" alt="My lovely image" />
+			<img class="image-responsive carousel" src="http://wallpaperpassion.com/upload/25526/orioles-birds-wallpaper.jpg" alt="My 2nd lovely image" />
+			<img class="image-responsive carousel" src="http://www.dream-wallpaper.com/free-wallpaper/art-wallpaper/colorful-world-episode-3-wallpaper/1280x1024/free-wallpaper-8.jpg" alt="My 3rd lovely image" />
+		  </div>
+	    </div>
+		
+      </div>
+	</article>
+    <footer>
+	  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	  <script src="https://github.com/ke2083/Frosted/blob/master/frosted.js"></script>
+	  <script>
+
+	  
+	    var carouselImage = 0;
+	  
+		$(document).ready(function(){
+		  // Do the frosting
+		  $('#frosted').frost();
+		  
+		  // And a cheap carousel just for demo purposes
+		  $('.carousel:not(:first)').hide();
+		  $('#prev').click(function(){
+		    $($('.carousel')[carouselImage]).fadeOut(200);
+			carouselImage--;
+			if (carouselImage < 0) carouselImage = 2;
+			$($('.carousel')[carouselImage]).fadeIn(200);
+		  });
+		  $('#next').click(function(){
+		    $($('.carousel')[carouselImage]).fadeOut(200);
+			carouselImage++;
+			if (carouselImage > 2) carouselImage = 0;
+			$($('.carousel')[carouselImage]).fadeIn(200);
+			
+		  });
+		});
+	  </script>
+	</footer>
+  </body>
+</html>
