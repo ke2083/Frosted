@@ -4,7 +4,7 @@
 **/
 	    (function($){
 		
-		  var container, backgrounds, frosted, checker, currentBackground;
+		  var container, backgrounds, frosted, checker, currentBackgroundX, currentBackgroundY, currentBackgroundOpacity, currentBackgroundSrc;
 		
 		  function applyFrosting(background){
 		    // Do we have a container to hold the frosted image?
@@ -24,7 +24,7 @@
 			
 		    // Compute the offset
 			var left = Math.floor(frosted.offset().left);
-			var top = Math.floor(frosted.offset().top);
+			var top = Math.floor(frosted.offset().top - height / 2);
 			
 			// Apply the frosted background
 		    frostHolder.css({
@@ -40,7 +40,10 @@
 			  'z-index': 1
 			});
 			
-			currentBackground = background.clone();
+			currentBackgroundY = background.position().top;
+			currentBackgroundX = background.position().left;
+			currentBackgroundOpacity = background.css('opacity');
+			currentBackgroundSrc = background.attr('src');
 		  };
 		
 		  function checkFrosting(){
@@ -54,11 +57,10 @@
 			if (!proposedBackground) return;
 			
 			// Is the proposed background different to the one currently applied in terms of source or position?
-			if (!currentBackground || 
-				currentBackground.attr('src') !== proposedBackground.attr('src') ||
-				currentBackground.offset().left !== proposedBackground.offset().left || 
-				currentBackground.offset().top !== proposedBackground.offset().top ||
-				currentBackground.css('opacity') !== proposedBackground.css('opacity')) {
+			if (currentBackgroundSrc !== proposedBackground.attr('src') ||
+				currentBackgroundX !== proposedBackground.offset().left || 
+				currentBackgroundY !== proposedBackground.offset().top ||
+				currentBackgroundOpacity !== proposedBackground.css('opacity')) {
 			  applyFrosting(proposedBackground);
 			}
 		  };
