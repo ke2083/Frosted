@@ -1,0 +1,28 @@
+{
+  "name": "Frosted",
+  "main": "Frosted.js",
+  "version": "1.0.0.0",
+  "homepage": "https://github.com/ke2083/Frosted",
+  "authors": [
+    "Kaylee Elúvian <Kaylee.Eluvian@hotmail.com>"
+  ],
+  "description": "A jQuery plugin to allow a frosted glass effect against an element.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "jQuery",
+    "frosted"
+  ],
+  "license": "GPL2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}

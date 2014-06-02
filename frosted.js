@@ -1,3 +1,7 @@
+/**
+* Applies a frosting effect to an element.
+* (c) Kaylee Eluvian 2014
+**/
 	    (function($){
 		
 		  var container, backgrounds, frosted, checker, currentBackground;
