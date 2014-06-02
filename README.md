@@ -62,4 +62,4 @@ The images in the `frostedBackground` div will be used as a frosted glass backgr
 Compatibility
 -------------
 
-Modern IE, Chrome and FF should be fine.  IE < 9 will suffer.
+Webkit and Opera based browsers only- none of the rest (FireFox or IE) support CSS3 filters.
